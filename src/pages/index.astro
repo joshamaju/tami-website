@@ -9,7 +9,8 @@ import "../styles/global.css";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <meta name="generator" content={Astro.generator} />
     <title>Tami</title>
   </head>
@@ -21,7 +22,7 @@ import "../styles/global.css";
           class="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0"
         >
           <div class="flex gap-2 items-center text-xl font-bold">
-            <Terminal className="h-6 w-6" />
+            <img src="/tami.svg" class="h-6 w-6" />
             <span>tami</span>
           </div>
         </div>
@@ -45,7 +46,7 @@ import "../styles/global.css";
                 <h2 class="text-md font-bold">Get Started</h2>
 
                 <div
-                  class="relative flex h-12 items-center rounded-md bg-white text-black px-4"
+                  class="relative flex h-12 items-center rounded-md bg-black text-white dark:bg-white dark:text-black px-4"
                 >
                   <Terminal className="mr-2 h-4 w-4 text-[#71717a]" />
                   <span class="text-sm font-medium">npx tami-client</span>
@@ -120,7 +121,7 @@ import "../styles/global.css";
     opacity: 20%;
     height: 200px;
     position: absolute;
-    background: linear-gradient(to bottom, #ffedd4, transparent);
+    background: linear-gradient(to bottom, black, transparent);
   }
 
   @media (prefers-color-scheme: dark) {

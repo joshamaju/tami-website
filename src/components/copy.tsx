@@ -1,24 +1,20 @@
-import { useOptimistic, useTransition, useState } from "react";
+import { useOptimistic, useTransition } from "react";
 
 import { Check, Code } from "lucide-react";
 import { cn } from "../lib/utils";
 import { button } from "./button";
 
 export const CopyToClipboard = () => {
-  const [state, set_state] = useState<"idle" | "copied">("idle");
+  const [state, set_state] = useOptimistic<"idle" | "copied">("idle");
   const [_, startTransition] = useTransition();
-
-  console.log(state);
 
   return (
     <button
       className={cn(
         button({ variant: "ghost", size: "sm" }),
-        "absolute right-1 h-8 w-8 p-0"
+        "absolute right-1 h-8 w-8 p-0 cursor-pointer"
       )}
       onClick={() => {
-        console.log("here");
-
         startTransition(async () => {
           navigator.clipboard.writeText("npx tami-client");
           set_state("copied");

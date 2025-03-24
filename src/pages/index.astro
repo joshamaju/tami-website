@@ -1,8 +1,8 @@
 ---
-import { Github, Globe, Terminal, Zap } from "lucide-react";
+import { Github, Globe, Terminal } from "lucide-react";
 import Button from "../components/button.astro";
-import { CopyToClipboard } from "../components/copy";
 import CircleCheck from "../components/circle-check.astro";
+import { CopyToClipboard } from "../components/copy";
 import "../styles/global.css";
 ---
 
@@ -76,7 +76,7 @@ import "../styles/global.css";
                 >
                   <Terminal className="mr-2 h-4 w-4 text-[#71717a]" />
                   <span class="text-sm font-medium">npx tami-client</span>
-                  <CopyToClipboard />
+                  <CopyToClipboard client:load />
                 </div>
 
                 <Button
@@ -184,9 +184,9 @@ import "../styles/global.css";
                 </div>
                 <h3 class="text-xl font-bold">Run in Terminal</h3>
                 <p class="text-center text-[#71717a]">
-                  Type <code class="bg-[#f4f4f5] px-1 py-0.5 rounded"
-                    >npx tami-client</code
-                  > in your terminal.
+                  Type <code class="bg-[#f4f4f5] px-1 py-0.5 rounded">
+                    npx tami-client
+                  </code> in your terminal.
                 </p>
               </div>
               <div class="flex flex-col items-center space-y-4">
@@ -317,7 +317,7 @@ import "../styles/global.css";
               >
                 <Terminal className="mr-2 h-4 w-4 text-[#71717a]" />
                 <span class="text-sm font-medium">npx tami-client</span>
-                <CopyToClipboard />
+                <CopyToClipboard client:load />
               </div>
               <!-- <Button class="w-full" size="lg">
                 Get Started <ArrowRight class="ml-2 h-4 w-4" />
@@ -351,7 +351,7 @@ import "../styles/global.css";
               Privacy
             </a> -->
             <a
-              href="https://github.com/yourusername/tami-client"
+              href="https://github.com/joshamaju/tami"
               class="text-sm text-[#71717a] underline-offset-4 hover:underline"
             >
               GitHub

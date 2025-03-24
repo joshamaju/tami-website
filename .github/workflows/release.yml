@@ -1,0 +1,43 @@
+name: Publish to npm
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+
+      - name: install pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - run: pnpm install
+      - run: pnpm build
+
+      - name: publish doc
+        run: |
+          git config --local user.email "joshsemail4work@gmail.com"
+          git config --local user.name "Joshua Amaju"
+          git add --all
+          git commit -m "chore: add generated output"

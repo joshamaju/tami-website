@@ -1,11 +1,413 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Github, Globe, Terminal, Zap } from "lucide-react";
+import Button from "../components/button.astro";
+import { CopyToClipboard } from "../components/copy";
+import CircleCheck from "../components/circle-check.astro";
+import "../styles/global.css";
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tami</title>
+  </head>
+
+  <!-- <body class="bg-white dark:bg-gray-950"></body> -->
+  <body>
+    <div class="flex min-h-screen flex-col">
+      <header
+        class="sticky top-0 z-50 w-full border-b bg-[#fffffff2] backdrop-blur-lg supports-[backdrop-filter]:bg-[#ffffff99]"
+      >
+        <div
+          class="container mx-auto flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0"
+        >
+          <div class="flex gap-2 items-center text-xl font-bold">
+            <Terminal className="h-6 w-6" />
+            <span>tami</span>
+          </div>
+          <!-- <div class="flex flex-1 items-center justify-end space-x-4">
+            <nav class="flex items-center space-x-2">
+              <a
+                href="#features"
+                class="text-sm font-medium text-[#71717a] transition-colors hover:text-primary"
+              >
+                Features
+              </a>
+              <a
+                href="#how-it-works"
+                class="text-sm font-medium text-[#71717a] transition-colors hover:text-primary"
+              >
+                How It Works
+              </a>
+              <a
+                href="https://github.com/yourusername/tami-client"
+                class="text-sm font-medium text-[#71717a] transition-colors hover:text-primary"
+              >
+                GitHub
+              </a>
+              <Button variant="default" size="sm"> Get Started </Button>
+            </nav>
+          </div> -->
+        </div>
+      </header>
+      <main class="flex-1">
+        <section class="w-full py-12 md:py-24 lg:py-32 xl:py-48">
+          <div class="container mx-auto px-4 md:px-6">
+            <div class="flex flex-col items-center space-y-4 text-center">
+              <div class="space-y-2">
+                <h1
+                  class="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none"
+                >
+                  The Lightweight API Client
+                </h1>
+                <p class="mx-auto max-w-[700px] text-[#71717a] md:text-xl">
+                  Launch from your terminal, run in your browser. Test your APIs
+                  without the bloat of traditional tools.
+                </p>
+              </div>
+              <div class="w-full max-w-sm space-y-2">
+                <h2 class="text-md font-bold">Get Started</h2>
+
+                <div
+                  class="relative flex h-12 items-center rounded-md bg-[#f4f4f5] px-4"
+                >
+                  <Terminal className="mr-2 h-4 w-4 text-[#71717a]" />
+                  <span class="text-sm font-medium">npx tami-client</span>
+                  <CopyToClipboard />
+                </div>
+
+                <Button
+                  size="lg"
+                  class="w-full"
+                  href="https://github.com/joshamaju/tami"
+                >
+                  <Github className="mr-2 h-4 w-4" /> View on GitHub
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section
+          id="features"
+          class="w-full py-12 md:py-24 lg:py-32 bg-[#f4f4f5]"
+        >
+          <div class="container mx-auto px-4 md:px-6">
+            <div
+              class="flex flex-col items-center justify-center space-y-4 text-center"
+            >
+              <div class="space-y-2">
+                <div
+                  class="inline-block rounded-lg bg-primary px-3 py-1 text-sm text-primary-foreground"
+                >
+                  Features
+                </div>
+                <h2 class="text-3xl font-bold tracking-tighter md:text-4xl">
+                  Why Choose tami-client?
+                </h2>
+                <p class="max-w-[700px] text-[#71717a] md:text-xl">
+                  A better way to test and interact with your APIs.
+                </p>
+              </div>
+            </div>
+            <div
+              class="mx-auto grid max-w-5xl grid-cols-1 gap-6 py-12 md:grid-cols-2 lg:grid-cols-2"
+            >
+              <!-- <div
+                class="flex flex-col items-center space-y-2 rounded-lg border p-6"
+              >
+                <div
+                  class="rounded-full bg-primary p-2 text-primary-foreground"
+                >
+                  <Zap class="h-6 w-6" />
+                </div>
+                <h3 class="text-xl font-bold">Resource Efficient</h3>
+                <p class="text-center text-[#71717a]">
+                  Uses significantly less system resources than Postman and
+                  other heavy API clients.
+                </p>
+              </div> -->
+              <div
+                class="flex flex-col items-center space-y-2 rounded-lg border p-6"
+              >
+                <div
+                  class="rounded-full bg-primary p-2 text-primary-foreground"
+                >
+                  <Terminal className="h-6 w-6" />
+                </div>
+                <h3 class="text-xl font-bold">Terminal First</h3>
+                <p class="text-center text-[#71717a]">
+                  Launch directly from your command line with a simple command.
+                </p>
+              </div>
+              <div
+                class="flex flex-col items-center space-y-2 rounded-lg border p-6"
+              >
+                <div
+                  class="rounded-full bg-primary p-2 text-primary-foreground"
+                >
+                  <Globe className="h-6 w-6" />
+                </div>
+                <h3 class="text-xl font-bold">Browser Based</h3>
+                <p class="text-center text-[#71717a]">
+                  Familiar browser interface with all the tools you need for API
+                  testing.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section id="how-it-works" class="w-full py-12 md:py-24 lg:py-32">
+          <div class="container px-4 md:px-6">
+            <div
+              class="flex flex-col items-center justify-center space-y-4 text-center"
+            >
+              <div class="space-y-2">
+                <h2 class="text-3xl font-bold tracking-tighter md:text-4xl">
+                  How It Works
+                </h2>
+                <p class="max-w-[700px] text-[#71717a] md:text-xl">
+                  Simple, fast, and efficient API testing in three easy steps.
+                </p>
+              </div>
+            </div>
+            <div
+              class="mx-auto grid max-w-5xl grid-cols-1 gap-8 py-12 md:grid-cols-3"
+            >
+              <div class="flex flex-col items-center space-y-4">
+                <div
+                  class="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-3xl font-bold text-primary-foreground"
+                >
+                  1
+                </div>
+                <h3 class="text-xl font-bold">Run in Terminal</h3>
+                <p class="text-center text-[#71717a]">
+                  Type <code class="bg-[#f4f4f5] px-1 py-0.5 rounded"
+                    >npx tami-client</code
+                  > in your terminal.
+                </p>
+              </div>
+              <div class="flex flex-col items-center space-y-4">
+                <div
+                  class="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-3xl font-bold text-primary-foreground"
+                >
+                  2
+                </div>
+                <h3 class="text-xl font-bold">Browser Opens</h3>
+                <p class="text-center text-[#71717a]">
+                  A new browser tab automatically opens with the tami interface.
+                </p>
+              </div>
+              <div class="flex flex-col items-center space-y-4">
+                <div
+                  class="flex h-16 w-16 items-center justify-center rounded-full bg-primary text-3xl font-bold text-primary-foreground"
+                >
+                  3
+                </div>
+                <h3 class="text-xl font-bold">Test Your APIs</h3>
+                <p class="text-center text-[#71717a]">
+                  Start making requests and testing your APIs with a
+                  lightweight, fast interface.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="w-full py-12 md:py-24 lg:py-32 bg-[#f4f4f5]">
+          <div class="container mx-auto px-4 md:px-6">
+            <div
+              class="grid gap-6 lg:grid-cols-[1fr_500px] lg:gap-12 xl:grid-cols-[1fr_550px]"
+            >
+              <div class="rounded-lg border bg-white p-4">
+                <div class="flex items-center justify-between border-b pb-2">
+                  <div class="flex items-center gap-2">
+                    <div class="h-3 w-3 rounded-full bg-red-500"></div>
+                    <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+                    <div class="h-3 w-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <div class="text-xs text-[#71717a]">tami</div>
+                </div>
+                <div class="mt-4 space-y-4">
+                  <div class="space-y-2">
+                    <div class="flex items-center gap-2">
+                      <div class="font-medium">GET</div>
+                      <div
+                        class="flex-1 rounded bg-[#f4f4f5] px-2 py-1 text-sm"
+                      >
+                        https://api.example.com/users
+                      </div>
+                      <Button size="sm">Send</Button>
+                    </div>
+                  </div>
+                  <div class="rounded border p-2">
+                    <div class="text-sm font-medium">Response</div>
+                    <pre
+                      class="mt-2 overflow-x-auto text-xs">
+                      <code>
+                        {`
+{
+  "users": [
+    { "id": 1, "name": "John Doe" },
+    { "id": 2, "name": "Jane Smith" }
+  ]
+}`}
+                      </code>
+                    </pre>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex flex-col justify-center space-y-4">
+                <div class="space-y-2">
+                  <!-- <h2 class="text-3xl font-bold tracking-tighter sm:text-4xl">
+                    Lightweight
+                  </h2> -->
+                  <!-- <p
+                    class="max-w-[600px] text-muted-foreground md:text-xl/relaxed"
+                  >
+                    Launch it when you need it, close it when you're done - test
+                    local APIs, no background processes or heavy installations.
+                  </p> -->
+                </div>
+                <ul class="grid gap-4">
+                  <li class="flex items-center gap-2">
+                    <CircleCheck />
+                    <span>No installation required - runs with npx</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <CircleCheck />
+                    <span>
+                      Uses your browser's engine instead of a separate Electron
+                      app
+                    </span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <CircleCheck />
+                    <span> Test local APIs directly from your browser </span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <CircleCheck />
+                    <span> API history stored locally </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="w-full py-12 md:py-24 lg:py-32">
+          <div
+            class="container grid items-center justify-center gap-4 px-4 text-center md:px-6"
+          >
+            <div class="space-y-3">
+              <h2 class="text-3xl font-bold tracking-tighter md:text-4xl/tight">
+                Ready to try a better API client?
+              </h2>
+              <p
+                class="mx-auto max-w-[600px] text-[#71717a] md:text-xl/relaxed"
+              >
+                Start using tami today and see how much faster and lighter API
+                testing can be.
+              </p>
+            </div>
+            <div class="mx-auto w-full max-w-sm space-y-2">
+              <div
+                class="relative flex h-12 items-center rounded-md bg-[#f4f4f5] px-4"
+              >
+                <Terminal className="mr-2 h-4 w-4 text-[#71717a]" />
+                <span class="text-sm font-medium">npx tami-client</span>
+                <CopyToClipboard />
+              </div>
+              <!-- <Button class="w-full" size="lg">
+                Get Started <ArrowRight class="ml-2 h-4 w-4" />
+              </Button> -->
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="w-full border-t py-6">
+        <div
+          class="container flex flex-col items-center justify-center gap-4 px-4 md:px-6 md:flex-row"
+        >
+          <div class="flex items-center gap-2 text-sm">
+            <Terminal className="h-4 w-4" />
+            <span class="font-semibold">tami</span>
+          </div>
+          <p class="text-center text-sm text-[#71717a] md:text-left">
+            &copy; {new Date().getFullYear()} tami. All rights reserved.
+          </p>
+          <div class="flex gap-4 md:ml-auto">
+            <!-- <a
+              href="#"
+              class="text-sm text-[#71717a] underline-offset-4 hover:underline"
+            >
+              Terms
+            </a>
+            <a
+              href="#"
+              class="text-sm text-[#71717a] underline-offset-4 hover:underline"
+            >
+              Privacy
+            </a> -->
+            <a
+              href="https://github.com/yourusername/tami-client"
+              class="text-sm text-[#71717a] underline-offset-4 hover:underline"
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 1.5;
+  }
+
+  /* body::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    content: "";
+    position: absolute;
+    background: linear-gradient(to right, #80808012 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  body::after {
+    top: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    opacity: 20%;
+    height: 200px;
+    position: absolute;
+    background: linear-gradient(to bottom, #ffedd4, transparent);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body::after {
+      background: linear-gradient(to bottom, #7e2a0c, transparent);
+    }
+
+    body::before {
+      background: linear-gradient(to right, #ffffff12 1px, transparent 1px),
+        linear-gradient(to bottom, #ffffff12 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+  } */
+
+  * {
+    border-color: #e4e4e7;
+  }
+</style>

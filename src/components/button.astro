@@ -1,0 +1,19 @@
+---
+import { type VariantProps, cva } from "class-variance-authority";
+import { cn } from "../lib/utils";
+import type { HTMLAttributes, HTMLTag, Polymorphic } from "astro/types";
+import { button } from "./button";
+
+
+type Props<Tag extends HTMLTag> = VariantProps<typeof button> &
+  Polymorphic<{ as: Tag }> &
+  (HTMLAttributes<"button"> | HTMLAttributes<"a">);
+
+const { size, variant, class: className, ...props } = Astro.props;
+
+const Comp = "href" in props ? "a" : "button";
+---
+
+<Comp {...props} class={cn(button({ variant, size, className }))}>
+  <slot />
+</Comp>

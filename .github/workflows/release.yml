@@ -41,3 +41,4 @@ jobs:
           git config --local user.name "Joshua Amaju"
           git add --all
           git commit -m "chore: add generated output"
+          git push origin main
